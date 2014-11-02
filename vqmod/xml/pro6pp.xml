@@ -1,0 +1,680 @@
+<modification>
+	<id><![CDATA[Add Pro6PP postcode + streetnumber validator]]></id>
+	<version><![CDATA[1.2]]></version>
+	<vqmver><![CDATA[2.1.6]]></vqmver>
+	<author><![CDATA[d-centralize.nl]]></author>
+
+        <!-- Seems this fix needs to be applied http://code.google.com/p/opencart/issues/detail?id=941 -->
+	<file name="catalog/model/account/address.php">
+		<operation>
+			<search position="replace"><![CDATA[
+company_id = '" . $this->db->escape($data['company_id']) . "', tax_id = '" . $this->db->escape($data['tax_id'])
+]]></search>
+			<add><![CDATA[
+company_id = '" . $this->db->escape(isset($data['company_id']) ? $data['company_id'] : '') . "', tax_id = '" . $this->db->escape(isset($data['tax_id']) ? $data['tax_id'] : '')
+]]></add>
+		</operation>
+	</file>
+
+	<file name="admin/language/english/sale/affiliate.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+	<file name="admin/language/english/sale/order.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+        <file name="admin/language/english/sale/customer.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+
+
+	<file name="catalog/language/english/account/register.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/account/address.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/affiliate/register.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/affiliate/edit.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/checkout/checkout.php">
+		<operation>
+			<search position="replace"><![CDATA[Address 1]]></search>
+			<add><![CDATA[Street]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Address 2:']]></search>
+			<add><![CDATA['Streetnumber:']]></add>
+		</operation>
+	</file>
+	
+
+	<file name="catalog/language/dutch/account/register.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/dutch/account/address.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/dutch/affiliate/register.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/affiliate/edit.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/dutch/checkout/checkout.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+
+	<file name="admin/language/dutch/sale/affiliate.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+	<file name="admin/language/dutch/sale/order.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+	<file name="admin/language/dutch/sale/customer.php">
+		<operation>
+			<search position="replace"><![CDATA[Adres 1]]></search>
+			<add><![CDATA[Straat]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['Adres 2:']]></search>
+			<add><![CDATA['Huisnummer:']]></add>
+		</operation>
+	</file>
+
+
+	<file name="catalog/view/theme/default/template/checkout/checkout.tpl">
+		<operation>
+			<search position="after"><![CDATA[<?php echo $content_bottom; ?></div>]]></search>
+			<add><![CDATA[<script type="text/javascript" src="catalog/view/javascript/pro6pp_autocomplete.js"></script>
+<script type="text/javascript">
+    var pro6pp_auth_key = "<?php echo $pro6pp_auth_key; ?>";
+    // applyAutocomplete should be called in each template, because forms are loaded dynamically.
+</script>
+]]></add>
+		</operation>
+	</file>
+
+
+	<file name="catalog/controller/account/register.php">
+		<operation>
+			<search position="before"><![CDATA[$this->response->setOutput($this->render());]]></search>
+			<add><![CDATA[                if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+                        $this->data['pro6pp_auth_key'] = str_replace('http', 'https', html_entity_decode($this->config->get('pro6pp_auth_key')));
+                } else {
+                        $this->data['pro6pp_auth_key'] = html_entity_decode($this->config->get('pro6pp_auth_key'));
+                }
+]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/account/address.php">
+		<operation>
+			<search position="before" index="2"><![CDATA[$this->response->setOutput($this->render());]]></search>
+			<add><![CDATA[                 if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+                         $this->data['pro6pp_auth_key'] = str_replace('http', 'https', html_entity_decode($this->config->get('pro6pp_auth_key')));
+                 } else {
+                         $this->data['pro6pp_auth_key'] = html_entity_decode($this->config->get('pro6pp_auth_key'));
+                 }
+]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/checkout/checkout.php">
+		<operation>
+			<search position="before"><![CDATA[$this->response->setOutput($this->render());]]></search>
+			<add><![CDATA[                if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+                        $this->data['pro6pp_auth_key'] = str_replace('http', 'https', html_entity_decode($this->config->get('pro6pp_auth_key')));
+                } else {
+                        $this->data['pro6pp_auth_key'] = html_entity_decode($this->config->get('pro6pp_auth_key'));
+                }
+]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/view/theme/default/template/account/register.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<div class="content">]]></search>
+			<add><![CDATA[<div class="content register">]]></add>
+		</operation>
+		<operation>
+			<search position="replace" offset="37"><![CDATA[<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>]]></search>
+			<add><![CDATA[
+        <td><span class="required">*</span> <?php echo $entry_country; ?></td>
+          <td><select name="country_id">
+              <option value=""><?php echo $text_select; ?></option>
+              <?php foreach ($countries as $country) { ?>
+              <?php if ($country['country_id'] == $country_id) { ?>
+              <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+            <?php if ($error_country) { ?>
+            <span class="error"><?php echo $error_country; ?></span>
+            <?php } ?></td>
+        </tr>
+        <tr>
+          <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+          <td><input type="text" name="postcode" value="<?php echo $postcode; ?>" />
+            <?php if ($error_postcode) { ?>
+            <span class="error"><?php echo $error_postcode; ?></span>
+            <?php } ?></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_address_2; ?></td>
+          <td><input type="text" name="address_2" value="<?php echo $address_2; ?>" />
+          <div class="autocomplete_message" style="display: none"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+          <td><input type="text" name="address_1" value="<?php echo $address_1; ?>" />
+            <?php if ($error_address_1) { ?>
+            <span class="error"><?php echo $error_address_1; ?></span>
+            <?php } ?></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+          <td><input type="text" name="city" value="<?php echo $city; ?>" />
+            <?php if ($error_city) { ?>
+            <span class="error"><?php echo $error_city; ?></span>
+]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<?php echo $footer; ?>]]></search>
+			<add><![CDATA[<script type="text/javascript" src="catalog/view/javascript/pro6pp_autocomplete.js"></script>
+<script type="text/javascript">
+    var pro6pp_auth_key = "<?php echo $pro6pp_auth_key; ?>";
+    $(document).ready(function() {
+      $(".register").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+      });
+    });
+</script>
+]]></add>
+		</operation>
+	</file>
+
+
+	<file name="catalog/view/theme/default/template/account/address_form.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<table class="form">]]></search>
+			<add><![CDATA[<table class="form address-form">]]></add>
+		</operation>
+		<operation>
+                        <search position="replace" offset="37"><![CDATA[<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>]]></search>
+                        <add><![CDATA[
+          <td><span class="required">*</span> <?php echo $entry_country; ?></td>
+          <td><select name="country_id">
+              <option value=""><?php echo $text_select; ?></option>
+              <?php foreach ($countries as $country) { ?>
+              <?php if ($country['country_id'] == $country_id) { ?>
+              <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+            <?php if ($error_country) { ?>
+            <span class="error"><?php echo $error_country; ?></span>
+            <?php } ?></td>
+        </tr>
+        <tr>
+        <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+          <td><input type="text" name="postcode" value="<?php echo $postcode; ?>" />
+            <?php if ($error_postcode) { ?>
+            <span class="error"><?php echo $error_postcode; ?></span>
+            <?php } ?></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_address_2; ?></td>
+          <td><input type="text" name="address_2" value="<?php echo $address_2; ?>" />
+          <div class="autocomplete_message" style="display: none"></div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+          <td><input type="text" name="address_1" value="<?php echo $address_1; ?>" />
+            <?php if ($error_address_1) { ?>
+            <span class="error"><?php echo $error_address_1; ?></span>
+            <?php } ?></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+          <td><input type="text" name="city" value="<?php echo $city; ?>" />
+            <?php if ($error_city) { ?>
+            <span class="error"><?php echo $error_city; ?></span>
+]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<?php echo $footer; ?>]]></search>
+			<add><![CDATA[<script type="text/javascript" src="catalog/view/javascript/pro6pp_autocomplete.js"></script>
+<script type="text/javascript">
+    var pro6pp_auth_key = "<?php echo $pro6pp_auth_key; ?>";
+    $(document).ready(function() {
+      $(".address-form").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+      });
+    });
+</script>
+]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/view/theme/default/template/checkout/payment_address.tpl">
+<operation>
+        <search position="replace"><![CDATA[<table class="form">]]></search>
+        <add><![CDATA[<table class="form register">]]></add>
+</operation>
+<operation>
+        <search position="replace" offset="26"><![CDATA[<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>]]></search>
+        <add><![CDATA[
+      <td><span class="required">*</span> <?php echo $entry_country; ?></td>
+      <td><select name="country_id" class="large-field">
+          <option value=""><?php echo $text_select; ?></option>
+          <?php foreach ($countries as $country) { ?>
+          <?php if ($country['country_id'] == $country_id) { ?>
+          <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+          <?php } else { ?>
+          <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+          <?php } ?>
+          <?php } ?>
+        </select></td>
+    </tr>
+    <tr>
+<td><span id="payment-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+<td><input type="text" name="postcode" value="" class="large-field" /></td>
+</tr>
+<tr>
+<td><span class="required">*</span> <?php echo $entry_address_2; ?></td>
+<td><input type="text" name="address_2" value="" class="large-field" />
+    <div class="autocomplete_message" style="display: none"></div>
+</td>
+</tr>
+<tr>
+<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+<td><input type="text" name="address_1" value="" class="large-field" /></td>
+<tr>
+<td><span class="required">*</span> <?php echo $entry_city; ?></td>
+<td><input type="text" name="city" value="" class="large-field" /></td>
+]]></add>
+</operation>
+<operation>
+        <search position="after" index="1"><![CDATA[//--></script>]]></search>
+        <add><![CDATA[<script type="text/javascript">
+$(document).ready(function() {
+$("table.register").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+});
+});
+</script>
+]]></add>
+</operation>
+</file>
+
+        <file name="catalog/view/theme/default/template/checkout/shipping_address.tpl">
+<operation>
+        <search position="replace"><![CDATA[<table class="form">]]></search>
+        <add><![CDATA[<table class="form shipping">]]></add>
+</operation>            
+<operation>
+        <search position="replace" offset="27"><![CDATA[<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>]]></search>
+        <add><![CDATA[
+      <td><span class="required">*</span> <?php echo $entry_country; ?></td>
+      <td><select name="country_id" class="large-field">
+          <option value=""><?php echo $text_select; ?></option>
+          <?php foreach ($countries as $country) { ?>
+          <?php if ($country['country_id'] == $country_id) { ?>
+          <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+          <?php } else { ?>
+          <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+          <?php } ?>
+          <?php } ?>
+        </select></td>
+    </tr>
+    <tr>
+      <td><span id="shipping-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+      <td><input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field" /></td>
+    </tr>
+    <tr>
+      <td><span class="required">*</span> <?php echo $entry_address_2; ?></td>
+      <td><input type="text" name="address_2" value="" class="large-field" />
+          <div class="autocomplete_message" style="display: none"></div>
+       </td>
+    </tr>
+    <tr>
+      <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+      <td><input type="text" name="address_1" value="" class="large-field" /></td>
+    </tr>
+    <tr>
+      <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+      <td><input type="text" name="city" value="" class="large-field" /></td>
+]]></add>
+</operation>
+<operation>
+        <search position="after" index="1"><![CDATA[//--></script>]]></search>
+        <add><![CDATA[<script type="text/javascript">
+$(document).ready(function() {
+$("table.shipping").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+        });
+});
+</script>
+]]></add>
+</operation>
+</file>
+
+	<file name="catalog/view/theme/default/template/checkout/register.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<div class="right">]]></search>
+			<add><![CDATA[<div class="right register">]]></add>
+		</operation>
+		<operation>
+                        <search position="replace" offset="26"><![CDATA[<span class="required">*</span> <?php echo $entry_address_1; ?><br />]]></search>
+                        <add><![CDATA[
+  <span class="required">*</span> <?php echo $entry_country; ?><br />
+  <select name="country_id" class="large-field">
+    <option value=""><?php echo $text_select; ?></option>
+    <?php foreach ($countries as $country) { ?>
+    <?php if ($country['country_id'] == $country_id) { ?>
+    <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+    <?php } else { ?>
+    <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+    <?php } ?>
+    <?php } ?>
+  </select>
+  <br />
+  <br />
+   <span id="payment-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?><br />
+   <input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field" />
+   <br />
+   <br />
+   <span class="required">*</span> <?php echo $entry_address_2; ?><br />
+   <input type="text" name="address_2" value="" class="large-field" />
+   <div class="autocomplete_message" style="display: none"></div>
+   <br />
+   <br />
+   <span class="required">*</span> <?php echo $entry_address_1; ?><br />
+   <input type="text" name="address_1" value="" class="large-field" />
+   <br />
+   <br />
+   <span class="required">*</span> <?php echo $entry_city; ?><br />
+   <input type="text" name="city" value="" class="large-field" />
+]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[//--></script>]]></search>
+			<add><![CDATA[<script type="text/javascript">
+    $(document).ready(function() {
+      $(".register").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+      });
+    });
+</script>
+]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/view/theme/default/template/checkout/guest.tpl">
+		<operation>
+                        <search position="replace" offset="26"><![CDATA[<span class="required">*</span> <?php echo $entry_address_1; ?><br />]]></search>
+                        <add><![CDATA[
+<span class="required">*</span> <?php echo $entry_country; ?><br />
+  <select name="country_id" class="large-field">
+    <option value=""><?php echo $text_select; ?></option>
+    <?php foreach ($countries as $country) { ?>
+    <?php if ($country['country_id'] == $country_id) { ?>
+    <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+    <?php } else { ?>
+    <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+    <?php } ?>
+    <?php } ?>
+  </select>
+  <br />
+  <br />
+   <span id="payment-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?><br />
+   <input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field" />
+   <br />
+   <br />
+   <span class="required">*</span> <?php echo $entry_address_2; ?><br />
+   <input type="text" name="address_2" value="<?php echo $address_2; ?>" class="streetnumber small-field" />
+   <div class="autocomplete_message" style="display: none"></div>
+   <br />
+   <br />
+   <span class="required">*</span> <?php echo $entry_address_1; ?><br />
+     <input type="text" name="address_1" value="<?php echo $address_1; ?>" class="large-field" />
+   <br />
+   <br />
+   <span class="required">*</span> <?php echo $entry_city; ?><br />
+   <input type="text" name="city" value="<?php echo $city; ?>" class="large-field" />
+]]></add>
+		</operation>
+		<operation>
+			<search position="after" index="2"><![CDATA[//--></script>]]></search>
+			<add><![CDATA[<script type="text/javascript">
+    $(document).ready(function() {
+      $("div.right").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+      });
+    });
+</script>
+]]></add>
+		</operation>
+	</file>
+
+
+	<file name="catalog/view/theme/default/template/checkout/guest_shipping.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<table class="form">]]></search>
+			<add><![CDATA[<table class="form guest-shipping">]]></add>
+		</operation>
+		<operation>
+                        <search position="replace" offset="26"><![CDATA[<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>]]></search>
+                        <add><![CDATA[
+    <td><span class="required">*</span> <?php echo $entry_country; ?></td>
+    <td><select name="country_id" class="large-field">
+        <option value=""><?php echo $text_select; ?></option>
+        <?php foreach ($countries as $country) { ?>
+        <?php if ($country['country_id'] == $country_id) { ?>
+        <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+        <?php } else { ?>
+        <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+        <?php } ?>
+        <?php } ?>
+      </select></td>
+  </tr>
+  <tr>
+    <td><span id="shipping-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+     <td><input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field" /></td>
+   </tr>
+   <tr>
+     <td><span class="required">*</span> <?php echo $entry_address_2; ?></td>
+     <td><input type="text" name="address_2" value="<?php echo $address_2; ?>" class="large-field" />
+     <div class="autocomplete_message" style="display: none"></div>
+     </td>
+   </tr>
+   <tr>
+     <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+     <td><input type="text" name="address_1" value="<?php echo $address_1; ?>" class="large-field" /></td>
+   </tr>
+   <tr>
+     <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+     <td><input type="text" name="city" value="<?php echo $city; ?>" class="large-field" /></td>
+]]></add>
+		</operation>
+		<operation>
+			<search position="after" index="1"><![CDATA[//--></script>]]></search>
+			<add><![CDATA[<script type="text/javascript">
+    $(document).ready(function() {
+      $(".guest-shipping").applyAutocomplete({
+        // Trigger fields
+        country: 'select[name="country_id"]',
+        // Invoer velden
+        postcode: 'input[name="postcode"]',
+        streetnumber: 'input[name="address_2"]',
+        // Uitvoer velden
+        street: 'input[name="address_1"]',
+        city: 'input[name="city"]',
+        province: 'select[name="zone_id"]',
+        message: '.autocomplete_message'
+      });
+    });
+</script>
+]]></add>
+		</operation>
+	</file>
+</modification>
